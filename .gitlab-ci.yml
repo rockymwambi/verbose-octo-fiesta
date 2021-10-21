@@ -1,6 +1,13 @@
 image: alpine
 
 on-pull-requests:
-  script: echo 'this should run on pull requests'
-  only:
-    - external_pull_requests
+  #script: echo 'this should run on pull requests'
+  #only:
+    #- external_pull_requests
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "external_pull_request_event"
+      when: always
+    - if: $CI_COMMIT_REF_NAME == "main"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "web"
+      when: always 
