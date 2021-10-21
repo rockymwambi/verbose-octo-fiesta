@@ -1,2 +1,2 @@
-boom
-test
+Testing PR commit 1
+Testing PR commit 1
